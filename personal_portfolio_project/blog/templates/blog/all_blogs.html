@@ -1,7 +1,10 @@
-<h2>Tunde has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h2>
+{% extends 'portfolio/base.html'%}
+{% block content %}
+  <h2>Tunde has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h2>
 
-{% for blog in blogs %}
-  <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
-  <p>{{ blog.description|striptags|safe|truncatechars:100 }}</p>
-  <p><b>{{ blog.dateStamp|date:'l jS F Y' }}</b></p>
-{% endfor %}
+  {% for blog in blogs %}
+    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+    <p>{{ blog.description|striptags|safe|truncatechars:100 }}</p>
+    <p><b>{{ blog.dateStamp|date:'l jS F Y' }}</b></p>
+  {% endfor %}
+{% endblock %}
