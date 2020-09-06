@@ -1,1 +1,5 @@
-This is a blog
+{% for blog in blogs %}
+  <h2>{{ blog.title }}</h2>
+  <p>{{ blog.description }}</p>
+  <p>{{ blog.dateStamp }}</p>
+{% endfor %}
